@@ -134,7 +134,7 @@ namespace dsm
 
 		// select motion model
 		cv::Mat motion;
-		if (modelSelector->select(this->K, this->refPoints, this->prevPoints, motion))
+		if (modelSelector->select(this->K, this->refPoints, this->prevPoints, motion)) //NOTE init by essential or homography matrix
 		{
 			initOk = true;
 
@@ -170,6 +170,7 @@ namespace dsm
 
 			this->outputWrapper->publishProcessFrame(newImg);
 		}
+        std::cout << "draw finished \n";
 
 		return initOk;
 	}

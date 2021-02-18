@@ -1,29 +1,30 @@
-# 
+#
 # This file is part of DSM.
-# 
+#
 # Copyright (C) 2019 CEIT (Universidad de Navarra) and Universidad de Zaragoza
 # Developed by Jon Zubizarreta,
 # for more information see <https://github.com/jzubizarreta/dsm>.
 # If you use this code, please cite the respective publications as
 # listed on the above website.
-# 
+#
 # DSM is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
-# 
+#
 # DSM is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
 # along with DSM. If not, see <http://www.gnu.org/licenses/>.
-# 
+#
 
 cmake_minimum_required(VERSION 3.5)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set(CMAKE_PREFIX_PATH /data/limingyao/Qt/5.15.2/gcc_64)
 
 ######### Find the dependencies of this project #####
 find_package(OpenGL REQUIRED)
@@ -46,7 +47,7 @@ set(HEADER_MOC_FILES
 	${root}/GLWidget.h
 	${root}/QtWindow.h
     ${root}/QtVisualizer.h
-	) 
+	)
 
 set(HEADER_FILES
     ${root}/QtVisualizerLib.h
@@ -54,8 +55,8 @@ set(HEADER_FILES
     ${root}/KeyframeVisualizer.h
     ${root}/GLDrawings.h
         )
-	
-set(SOURCE_FILES 
+
+set(SOURCE_FILES
 	${root}/QtVisualizerLib.cpp
 	${root}/QtVisualizer.cpp
 	${root}/GLWidget.cpp
@@ -64,19 +65,19 @@ set(SOURCE_FILES
 	${root}/KeyframeVisualizer.cpp
 	${root}/GLDrawings.cpp
 	)
-	
+
 set(FORM_FILES
-	${root}/qtwindow.ui 
+	${root}/qtwindow.ui
 	)
-	
-set(RESOURCE_FILES 
-	${root}/qtwindow.qrc 
+
+set(RESOURCE_FILES
+	${root}/qtwindow.qrc
 	)
-	
+
 qt5_wrap_ui(FORM_HEADERS ${FORM_FILES})
 qt5_wrap_cpp(HEADERS_MOC ${HEADER_MOC_FILES})
 qt5_add_resources(RESOURCES_RCC ${RESOURCE_FILES})
-	
+
 # Organize the source and header files into groups
 source_group("Headers" FILES ${HEADER_FILES} ${HEADER_MOC_FILES})
 source_group("Source" FILES ${SOURCE_FILES})
@@ -109,7 +110,7 @@ qt5_use_modules(${LIBRARY_NAME} Core  Gui Widgets OpenGL)
 target_link_libraries(${LIBRARY_NAME} ${OPENGL_LIBRARIES} ${OpenCV_LIBS} dsm)
 
 # avoid compiler warnings from OpenGL on macos
-if(APPLE)  
+if(APPLE)
     target_compile_options(${LIBRARY_NAME} PRIVATE -Wno-deprecated-declarations -Wno-inconsistent-missing-override)
 endif()
 

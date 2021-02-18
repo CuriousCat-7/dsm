@@ -79,7 +79,7 @@ namespace dsm
 		}
 
 		// estimate both models
-		std::vector<unsigned char> homoInliers;
+		std::vector<unsigned char> homoInliers; //TODO READ the paper
 		std::vector<unsigned char> esseInliers;
 		cv::Mat H, E;
 

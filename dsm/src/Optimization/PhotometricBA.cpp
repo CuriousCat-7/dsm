@@ -42,6 +42,7 @@
 
 #include <fstream>
 #include <iomanip>
+#include <iostream>
 
 namespace dsm
 {
@@ -133,7 +134,7 @@ namespace dsm
 
 			// solve
 			Utils::Time tInitLvl = std::chrono::steady_clock::now();
-			problem.solve(this->options.solverOptions);
+			problem.solve(this->options.solverOptions);  // NOTE need ceres 1.4.0
 			Utils::Time tEndLvl = std::chrono::steady_clock::now();
 
 			// stats
