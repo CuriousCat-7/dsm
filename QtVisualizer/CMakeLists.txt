@@ -24,7 +24,8 @@
 cmake_minimum_required(VERSION 3.5)
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
-set(CMAKE_PREFIX_PATH /data/limingyao/Qt/5.15.2/gcc_64)
+#set(CMAKE_PREFIX_PATH /data/limingyao/Qt/5.15.2/gcc_64)
+set(CMAKE_PREFIX_PATH /data/limingyao/Qt_other/5.9.9/gcc_64)
 
 ######### Find the dependencies of this project #####
 find_package(OpenGL REQUIRED)

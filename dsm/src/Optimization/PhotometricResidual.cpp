@@ -158,7 +158,7 @@ namespace dsm
 				JupJT(1, 5) = K(1, 1) * Xpn[0];
 
 				// adjoint
-				JupJT *= worldToTarget.Adj();
+				JupJT *= worldToTarget.Adj(); // NOTE(limingyao) looks like project \delta\xi to the world coordinate
 			}
 		}
 
